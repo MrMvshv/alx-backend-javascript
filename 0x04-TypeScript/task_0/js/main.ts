@@ -6,47 +6,50 @@ interface Student {
 }
 
 const student1: Student = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 20,
-  location: "New York",
+  firstName: "Liam",
+  lastName: "Barasa",
+  age: 27,
+  location: "Nairobi",
 };
 
 const student2: Student = {
-  firstName: "Jane",
-  lastName: "Smith",
-  age: 22,
-  location: "Los Angeles",
+  firstName: "Liam",
+  lastName: "Barasa",
+  age: 27,
+  location: "Nairobi",
 };
 
-const studentsList = [student1, student2];
-  
-const table = document.createElement("studentTable");
+// Create an array of students
+const studentsList: Student[] = [student1, student2];
 
-// Create table header row
-const headerRow = document.createElement("tr");
-const firstNameHeader = document.createElement("th");
-firstNameHeader.textContent = "First Name";
-headerRow.appendChild(firstNameHeader);
-const locationHeader = document.createElement("th");
-locationHeader.textContent = "Location";
-headerRow.appendChild(locationHeader);
+// Render a table with student data
+const table: HTMLElement = document.createElement("table");
+
+// Create table headers
+const headers = ["First Name", "Location"];
+const headerRow: HTMLElement = document.createElement("tr");
+headers.forEach((header) => {
+  const th: HTMLElement = document.createElement("th");
+  th.textContent = header;
+  headerRow.appendChild(th);
+});
 table.appendChild(headerRow);
 
-// Iterate through the students array and create rows
+// Create table rows for each student
 studentsList.forEach((student) => {
-  const row = document.createElement("tr");
-  const firstNameCell = document.createElement("td");
+  const row: HTMLElement = document.createElement("tr");
 
+  // Create table cells for student data
+  const firstNameCell: HTMLElement = document.createElement("td");
   firstNameCell.textContent = student.firstName;
   row.appendChild(firstNameCell);
 
-  const locationCell = document.createElement("td");
+  const locationCell: HTMLElement = document.createElement("td");
   locationCell.textContent = student.location;
   row.appendChild(locationCell);
 
   table.appendChild(row);
 });
 
-// Append the table to the document body or any desired element
+// Append the table to the document body
 document.body.appendChild(table);

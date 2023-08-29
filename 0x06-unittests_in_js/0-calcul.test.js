@@ -7,12 +7,13 @@ describe('calculateNumber', () => {
     assert.equal(calculateNumber(1, 7), 8);
   });
   it('rounds numbers and returns sum', () => {
+    assert.equal(calculateNumber(1, 3), 4);
     assert.equal(calculateNumber(1, 3.7), 5);
-    assert.equal(calculateNumber(2.2, 3.7), 6);
+    assert.equal(calculateNumber(1.2, 3.7), 5);
   });
   it('returns correct sum of rounded numbers', () => {
-    assert.equal(calculateNumber(1.5, 3.7), 6);
-    assert.equal(calculateNumber(4.2, 4.5), 9);
+   assert.equal(calculateNumber(1.5, 3.7), 6);
+   assert.equal(calculateNumber(3.2, 5.5), 9);
   });
   it('sum is executed correctly with a 0', () => {
     assert.equal(calculateNumber(0, 8), 8);

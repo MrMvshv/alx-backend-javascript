@@ -10,17 +10,17 @@ const requestListener = async (req, res) => {
   else if (url === '/students') {
     const initialHeaderResponse = 'This is the list of our students\n';
     countStudents(process.argv[2])
-    .then((fields) => {
-      let response = initialHeaderResponse;
-      Object.keys(fields).forEach((field) => {
-        response += `Number of students in ${field}: ${fields[field].length}.`;
-        response += ` List: ${fields[field].join(', ')}\n`;
+      .then((fields) => {
+        let response = initialHeaderResponse;
+        Object.keys(fields).forEach((field) => {
+          response += `Number of students in ${field}: ${fields[field].length}.`;
+          response += ` List: ${fields[field].join(', ')}\n`;
+        });
+        res.end(response);
+      })
+      .catch((err) => {
+        res.end(`${initialHeaderResponse}${err.message}`);
       });
-      res.end(response);
-    })
-    .catch((err) => {
-      res.end(`${initialHeaderResponse}${err.message}`);
-    });
   }
 };
 

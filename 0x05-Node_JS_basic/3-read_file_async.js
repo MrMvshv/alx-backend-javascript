@@ -26,7 +26,7 @@ async function countStudents(path) {
         console.log(message);
       });
 
-      resolve();
+      resolve(fields);
     });
   });
 }

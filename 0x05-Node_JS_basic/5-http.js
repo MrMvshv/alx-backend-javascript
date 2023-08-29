@@ -12,6 +12,9 @@ const requestListener = async (req, res) => {
     countStudents(process.argv[2])
       .then((fields) => {
         let response = initialHeaderResponse;
+        const totalStudents = Object.values(fields).reduce((total, field) => total + field.length, 0);
+
+        response += `Number of students: ${totalStudents}\n`;
         Object.keys(fields).forEach((field) => {
           response += `Number of students in ${field}: ${fields[field].length}.`;
           response += ` List: ${fields[field].join(', ')}\n`;
